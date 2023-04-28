@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('name');
             $table->double('price');
             $table->integer('cart_id')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

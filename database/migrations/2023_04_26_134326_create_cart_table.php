@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->integer('NProd')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }
