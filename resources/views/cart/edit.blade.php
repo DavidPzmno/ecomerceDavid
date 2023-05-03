@@ -18,7 +18,6 @@
         <form id="products-form">
             @csrf
             <div class="form-group">
-                <a href="{{ route('carts') }}" class="btn btn-secondary">indietro</a>
                 <div style="display: flex;align-items: center;justify-content: center;">
                     <i class="bi bi-cart" style="font-size:30px"></i>
                     <h3>Carrello {{ $cart->name }}</h3>
@@ -43,12 +42,13 @@
                         <td>{{ $product->name }}</td>
                         <td>{{ $product->price }}</td>
                         @endforeach
-                </tbody>
-            </table>
-            <button type="button" class="btn btn-danger" id="buttonform">rimuovi prodotto/prodotti</button>
-        </form>
+                    </tbody>
+                </table>
+                <button type="button" class="btn btn-danger" id="buttonform">rimuovi prodotto/prodotti</button>
+                <a href="{{ route('carts') }}" class="btn btn-secondary">indietro</a>
+            </form>
+        </div>
     </div>
-</div>
 
 <script>
 

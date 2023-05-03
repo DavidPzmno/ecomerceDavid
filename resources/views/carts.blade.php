@@ -38,7 +38,7 @@
                     <td>{{ $cart->products->count() }}</td>
                     <td> <a href="{{ route('cart.delete',['id'=>$cart->id ]) }}" class="btn btn-danger">elimina</a>
                         <a href="{{ route('carts.edit',['id'=>$cart->id ]) }}" class="btn btn-secondary">modifica</a>
-                        <a href="{{ route('carts.detail',['id'=>$cart->id ]) }}" class="btn btn-info">mostra</a>
+                        <a href="{{ route('carts.show',['id'=>$cart->id ]) }}" class="btn btn-info">mostra</a>
                     </td>
                     @empty
                 <tr>

@@ -15,7 +15,7 @@ class CartController extends Controller
 {
     
 
-    public function show(): View
+    public function index()
     {
         return view('carts', [
             'carts' => Cart::all()
@@ -30,20 +30,9 @@ class CartController extends Controller
 
     }
 
-    public function store(CartCreateRequest $request): RedirectResponse
+    public function store(CartCreateRequest $request)
     {
        
-        /*
-        $validator = Validator::make($request->all(), [
-            'name' => 'required',
-            'products' => 'present|array'
-        ]);
-         
-        if ($validator->fails()) {
-
-            return redirect()->route('cart.create')->withErrors($validator);
-        }
-        */
 
         $newCart = new Cart;
 
@@ -62,11 +51,6 @@ class CartController extends Controller
         }
 
         return redirect()->route('carts');
-        /*
-       Cart::create([
-            'name' => $request->name
-       ]);
-        */
 
     }
 
@@ -91,7 +75,7 @@ class CartController extends Controller
 
     }
 
-    public function detail($id){
+    public function show($id){
 
         $cart = Cart::findOrFail($id);
 
@@ -126,6 +110,17 @@ class CartController extends Controller
             $product->save();
 
         }
+
+    }
+
+    public function addProduct(Request $request) {
+
+
+        $product = Product::findOrFail($request->productId);
+
+        $product->cart_id = $request->cartId;
+
+        $product->save();
 
     }
 
